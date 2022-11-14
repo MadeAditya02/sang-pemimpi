@@ -11,15 +11,15 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/js/all.min.js" integrity="sha512-Cvxz1E4gCrYKQfz6Ne+VoDiiLrbFBvc6BPh4iyKo2/ICdIodfgc5Q9cBjRivfQNUXBCEnQWcEInSXsvlNHY/ZQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	<link rel="stylesheet" href="tailwind.css">
 </head>
-<body>
+<body x-data="data" x-cloak class="overflow-x-hidden">
 	<div class="bg-[#a7155f]">
 		<section id="hero" class="relative -bottom-0.5 w-full h-screen flex justify-center items-center bg-gradient-to-b from-[#a7155f] to-[#7d1d8a]">
-			<div class="text-center text-white mb-20 z-10">
+			<div class="text-center text-white mb-20 z-10 fadeDown" x-intersect.threshold.30="show($el)">
 				<h1 class="font-semibold text-7xl">Sang Pemimpi</h1>
 				<div class="mt-4 text-lg">Andrea Hirata</div>
 			</div>
-			<div class="absolute bottom-20 text-white z-10">
-				<a href="#sinopsis" class="text-center text-white">
+			<div class="absolute bottom-20 text-white z-10 fadeDown" x-intersect.threshold.30="showWithDelay($el, 200)">
+				<a href="#tentang" class="text-center text-white">
 					Baca Selengkapnya
 					<i class="fa-solid fa-chevron-down animate-bounce block mx-auto mt-2"></i>
 				</a>
@@ -30,14 +30,14 @@
 	</div>
 
 	<div class="bg-gradient-to-b from-[#7d1d8a] to-[#6567b4] relative -bottom-px">
-		<section id="sinopsis" class="relative w-full py-24">
+		<section id="tentang" class="relative w-full py-24">
 			<img src="img/kiri.png" alt="" class="absolute left-0 top-0 md:w-40 w-32">
 			<div class="container mx-auto relative px-12 flex flex-wrap justify-center items-center z-10">
-				<h1 class="text-4xl text-center text-white font-semibold mb-8 mt-3 md:hidden">Sinopsis</h1>
-				<div class="md:w-[30%] w-full">
-					<img src="img/poster.jpg" alt="" class="w-full rounded">
+				<h1 class="text-4xl text-center text-white font-semibold mb-8 mt-3 md:hidden fadeDown" x-intersect.threshold.30="show($el)">Tentang Novel Sang Pemimpi</h1>
+				<div class="md:w-[30%] w-full fadeLeft" x-intersect.threshold.30="show($el)">
+					<img src="img/poster.jpg" alt="" class="w-full rounded shadow-2xl">
 				</div>
-				<div class="md:w-[65%] w-full text-white md:pl-16 text-lg mt-10 md:mt-0">
+				<div class="md:w-[65%] w-full text-white md:pl-16 text-lg mt-10 md:mt-0 fadeRight" x-intersect.threshold.30="show($el)">
 					<h1 class="text-4xl text-center font-semibold mb-8 hidden md:block">Tentang Novel Sang Pemimpi</h1>
 					<p>Sang Pemimpi Baru adalah novel kedua dalam tetralogi Laskar Pelangi karya Andrea Hirata yang diterbitkan oleh Bentang Pustaka pada Juli 2006. Dalam novel ini, Andrea mengeksplorasi hubungan persahabatannya dengan dua anak yatim piatu, Arai Ichsanul Mahidin dan Jimbron, serta kekuatan mimpi yang dapat membawa Andrea dan Arai melanjutkan studi ke Sorbonne, Paris, Prancis.</p>
 					<p class="mt-4">Novel ini bercerita tentang kehidupannya di Belitong pada masa SMA. Tiga tokoh utama dalam karya ini adalah Ikal, Arai dan Jimbron. Ikal tidak lain adalah Andrea Hirata sendiri, sedangkan Arai Ichsanul Mahidin adalah saudara jauhnya yang menjadi yatim piatu ketika masih kecil. Arai disebut simpai keramat karena dalam keluarganya ia adalah orang terakhir yang masih hidup dan ia pun diangkat menjadi anak oleh ayah Ikal. Jimbron merupakan teman Arai dan Ikal yang sangat terobsesi dengan kuda dan gagap bila sedang antusias terhadap sesuatu atau ketika gugup. Ketiganya melewati kisah persahabatan yang terjalin dari kecil hingga mereka bersekolah di SMA Negeri Bukan Main di Belitung</p>
@@ -46,9 +46,9 @@
 			</div>
 			<!-- <img src="img/kiri-tengah.png" alt="" class="absolute bottom-10 left-0 w-72 z-0"> -->
 		</section>
-		<section id="tokoh" class="relative w-full py-24">
+		<section id="tokoh" class="relative w-full py-32">
 			<img src="img/kanan.png" alt="" class="absolute -top-20 right-0 w-48">
-			<h1 class="relative text-4xl text-center font-semibold mb-12 mt-3 text-white z-10">Tokoh</h1>
+			<h1 class="relative text-4xl text-center font-semibold mb-12 mt-3 text-white z-10 fadeDown" x-intersect.threshold.30="show($el)">Tokoh</h1>
 			<!-- <div class="grid grid-cols-1 md:grid-cols-3 relative justify-center items-center gap-16 px-16 md:px-32 z-10">
 				<div class="card bg-[#d9d9d9] rounded-md p-8">
 					<img src="img/character.png" alt="" class="w-20 mx-auto rounded-full">
@@ -82,7 +82,7 @@
 					<p class="mt-2">Lorem ipsum dolor sit amet, consectetur, adipisicing elit. Tempora ut modi similique? Dolore qui consectetur cumque reiciendis molestiae quos exercitationem at? Rerum eum, repellat? Maiores?</p>
 				</div>
 			</div> -->
-			<ul class="list-tokoh scroll-smooth full w-[85%] mx-auto custom-scrollbar snap-x snap-mandatory">
+			<!-- <ul class="list-tokoh scroll-smooth full w-[85%] mx-auto custom-scrollbar snap-x snap-mandatory">
 			    <li class="item bg-[#d9d9d9] rounded-md p-8">
 			    	<h2 class="text-2xl font-semibold">Ikal</h2>
 					<p class="mt-2">Ikal seorang anak kampung dari keluarga yang kurang mampu, walaupun ia menjadi anak yang bandel saat di bangku SMA. Ia berhasil membuktikan bahwa ia mampu belajar dan bekerja, serta sukses untuk mencapai cita-citanya</p>
@@ -119,15 +119,32 @@
 			    	<h2 class="text-2xl font-semibold">Laksmi</h2>
 					<p class="mt-2">Laksmi merupakan gadis pujaan Jimbron, ia menjadi yatim piatu dan bekerja di pabrik cincau</p>
 			    </li>
-			 </ul>
+			 </ul> -->
+			 <div class="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-16 px-8 md:px-16 lg:px-32 relative z-10" x-data="tokoh">
+			 	<div class="item bg-[#d9d9d9] rounded-md p-8 h-96 overflow-hidden fadeDown" @mouseenter="change(true,0)" @mouseleave="change(false,0)" x-intersect.threshold.30="show($el)">
+			    	<h2 class="text-2xl text-center mb-6 font-semibold">Ikal</h2>
+					<img src="img/ikal.png" alt="" class="w-full" x-transition.duration.250ms x-show="lists.images[0]">
+					<p class="mt-2" x-transition.duration.250ms x-show="lists.text[0]">Ikal seorang anak kampung dari keluarga yang kurang mampu, walaupun ia menjadi anak yang bandel saat di bangku SMA. Ia berhasil membuktikan bahwa ia mampu belajar dan bekerja, serta sukses untuk mencapai cita-citanya.</p>
+			    </div>
+			    <div class="item bg-[#d9d9d9] rounded-md p-8 h-96 overflow-hidden fadeDown" @mouseenter="change(true,1)" @mouseleave="change(false,1)" x-intersect.threshold.30="showWithDelay($el, 100)">
+			    	<h2 class="text-2xl text-center mb-6 font-semibold">Arai</h2>
+					<img src="img/arai.png" alt="" class="w-full" x-transition.duration.250ms x-show="lists.images[1]">
+					<p class="mt-2" x-transition.duration.250ms x-show="lists.text[1]">Arai menjadi salah satu saudara angkat Ikal sejak kelas 3 SD saat ayahnya meninggal dunia. Arai dapat dikatakan sebagai seorang yang suka menghibur, jika ia atau temannya merasa sedih Arai salah satu orang yang akan menciptkanan kesedihan tersebut menjadi semangatnya.</p>
+			    </div>
+			    <div class="item bg-[#d9d9d9] rounded-md p-8 h-96 overflow-hidden fadeDown" @mouseenter="change(true,2)" @mouseleave="change(false,2)" x-intersect.threshold.30="showWithDelay($el, 200)">
+			    	<h2 class="text-2xl text-center mb-6 font-semibold">Jimbron</h2>
+					<img src="img/jimbron.png" alt="" class="w-full" x-transition.duration.250ms x-show="lists.images[2]">
+					<p class="mt-2" x-transition.duration.250ms x-show="lists.text[2]">Ikal seorang anak kampung dari keluarga yang kurang mampu, walaupun ia menjadi anak yang bandel saat di bangku SMA. Ia berhasil membuktikan bahwa ia mampu belajar dan bekerja, serta sukses untuk mencapai cita-citanya</p>
+			    </div>
+			 </div>
 		</section>
 	</div>
 
-	<section id="ringkasan" class="bg-[url('img/bg-ringkasan.png')] bg-cover bg-no-repeat w-full h-screen p-12 text-center" x-data="data" x-cloak>
-		<h1 class="text-4xl text-center font-semibold mb-8 text-white">Ringkasan</h1>
-		<h2 class="text-2xl text-center mb-4 text-white" :class="(!open) && 'invisible'" x-transition x-transition.duration.200ms x-text="`Bab ${chapter} : ${chapters[chapter-1]}`"></h2>
-		<a href="" class="text-center text-white previous relative" :class="(chapter==1) && 'invisible'" @click.prevent="changeChapter(chapter-1)" x-transition x-cloak><i class="fa-solid fa-chevron-up animate-bounce"></i></a>
-		<div class="relative lg:w-[60%] h-[70%] mx-auto mb-3">
+	<section id="ringkasan" class="bg-[url('img/bg-ringkasan.png')] bg-cover bg-no-repeat w-full h-screen p-12 text-center" x-data="ringkasan" x-cloak>
+		<h1 class="text-4xl text-center font-semibold mb-8 text-white fadeDown" x-intersect="show($el)">Ringkasan</h1>
+		<h2 class="text-2xl text-center mb-4 text-white fadeDown" :class="(!open) && 'invisible'" x-transition x-transition.duration.200ms x-text="`Bab ${chapter} : ${chapters[chapter-1]}`" x-intersect.threshold.30="showWithDelay($el, 150)"></h2>
+		<a href="" class="text-center text-white previous relative fadeDown" :class="(chapter==1) && 'invisible'" @click.prevent="changeChapter(chapter-1)" x-transition x-cloak x-intersect.threshold.30="showWithDelay($el, 300)"><i class="fa-solid fa-chevron-up animate-bounce"></i></a>
+		<div class="relative lg:w-[60%] h-[70%] mx-auto mb-3 fadeDown" x-intersect.threshold.30="showWithDelay($el, 300)">
 			<div class="absolute w-[240px] top-2 md:top-0 md:right-[101%] ml-2 md:ml-0 z-10 flex justify-start md:justify-end max-h-full" :class="expanded && 'shadow-xl'" x-data="{expanded: false}">
 				<div class="bg-gray-300 md:shadow-md rounded-md overflow-y-auto" id="daftar-isi" @scroll="scrollDaftarIsi" @click.outside="expanded = false">
 					<div class="sticky top-0 flex justify-between bg-gray-300 p-3" x-ref="header-list">
@@ -143,7 +160,7 @@
 					</ul>
 				</div>
 			</div>
-			<div class="my-4 bg-white bg-opacity-60 shadow-md rounded-md mx-auto h-full overflow-y-auto px-8 md:px-12 py-14 pt-6 text-justify scroll-smooth transition duration-150 ringkasan" x-ref="ringkasan" id="isi-ringkasan">
+			<div class="my-4 bg-white bg-opacity-60 shadow-md rounded-md mx-auto h-full overflow-y-auto px-8 md:px-12 py-14 pt-6 text-left md:text-justify scroll-smooth transition duration-150 ringkasan" x-ref="ringkasan" id="isi-ringkasan">
 				<div>
 					<template x-for="(isi, i) in ringkasan[chapter-1]['isi']">
 						<p class="text-xl pt-8" x-text="isi" x-show="open" x-ref="isi" id="isi" x-transition x-transition.duration.200ms></p>
@@ -151,28 +168,38 @@
 				</div>
 			</div>
 		</div>
-		<a href="" class="text-center text-white next" x-show="chapter < chapters.length" @click.prevent="changeChapter(chapter+1)" x-transition><i class="fa-solid fa-chevron-down animate-bounce"></i></a>
+		<a href="" class="text-center text-white next fadeDown" x-show="chapter < chapters.length" @click.prevent="changeChapter(chapter+1)" x-transition x-intersect.threshold.30="showWithDelay($el, 300)"><i class="fa-solid fa-chevron-down animate-bounce"></i></a>
 	</section>
 
 	<script defer src="https://unpkg.com/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
 	<script src="https://unpkg.com/@alpinejs/intersect@3.x.x/dist/cdn.min.js" defer></script>
 	<script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 	<script>
-		var root = document.documentElement;
-		const lists = document.querySelectorAll('.list-tokoh');
+		// var root = document.documentElement;
+		// const lists = document.querySelectorAll('.list-tokoh');
 
-		lists.forEach(el => {
-		  const listItems = el.querySelectorAll('li');
-		  const n = el.children.length;
-		  el.style.setProperty('--total', n);
-		})
-		lists[0].scrollLeft = 0
+		// lists.forEach(el => {
+		//   const listItems = el.querySelectorAll('li');
+		//   const n = el.children.length;
+		//   el.style.setProperty('--total', n);
+		// })
+		// lists[0].scrollLeft = 0
 	</script>
 	<script>
 		// x-intersect.threshold.80="changed(2)"
 		const delay = (duration = 300) => new Promise(resolve => setTimeout(resolve, duration))
 		document.addEventListener('alpine:init', function () {
 			Alpine.data('data', () => ({
+				show(el) {
+					el.classList.add('active')
+				},
+				async showWithDelay(el, duration) {
+					await delay(duration)
+					el.classList.add('active')
+				}
+			}))
+
+			Alpine.data('ringkasan', () => ({
 				chapter: 1,
 				chapters: [],
 				open: false,
@@ -186,9 +213,9 @@
 					this.chapter = chapter
 					this.open = true
 				},
-				scrollDaftarIsi() {
-					this.$refs['header-list'].classList.toggle('shadow-md', this.$refs['header-list'].offsetTop > 0)
-				},
+				// scrollDaftarIsi() {
+				// 	this.$refs['header-list'].classList.toggle('shadow-md', this.$refs['header-list'].offsetTop > 0)
+				// },
 				async init() {
 					try {
 						const res = await fetch('ringkasan.json')
@@ -197,6 +224,34 @@
 						this.chapters = await this.ringkasan.map(value => value.chapter_title)
 					} catch(e) {
 						console.log(e);
+					}
+				}
+			}))
+
+			Alpine.data('tokoh', () => ({
+				lists: {
+					images: [true, true, true],
+					text: [false, false, false]
+				},
+				currentlyMoving: false,
+				async change(val, i) {
+					console.log(i, val)
+					if (!this.currentlyMoving) {
+						if (val) {
+							this.lists.images[i] = false
+							await delay(200)
+							this.lists.text[i] = true
+						} else {
+							this.lists.text[i] = false
+							await delay(200)
+							this.lists.images[i] = true
+						}
+						this.currentlyMoving = false
+					}
+
+					if (this.lists.images[i] == this.lists.text[i]) {
+						this.lists.images[i] = !val
+						this.lists.text[i] = val
 					}
 				}
 			}))

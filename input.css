@@ -55,6 +55,28 @@ section#hero {
 		grid-template-columns: repeat(var(--total), calc(33% - 20px));
 	}
 }
+
+[x-cloak] {
+	display: none;
+}
+.fadeLeft {
+	@apply opacity-0 -translate-x-32 transition duration-700;
+}
+.fadeLeft.active {
+	@apply opacity-100 translate-x-0;
+}
+.fadeRight {
+	@apply opacity-0 translate-x-32 transition duration-700;
+}
+.fadeRight.active {
+	@apply opacity-100 translate-x-0;
+}
+.fadeDown {
+	@apply opacity-0 -translate-y-32 transition duration-700;
+}
+.fadeDown.active {
+	@apply opacity-100 translate-y-0;
+}
 /*@media (min-width: 768px) {
 	.list-tokoh {
 		grid-template-columns: repeat(var(--total), calc(50% - var(--gap)/2));
